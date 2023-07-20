@@ -11,8 +11,23 @@ import { useEffect, useRef, useState } from "react";
 import { Camera } from "expo-camera";
 import { shareAsync } from "expo-sharing";
 import * as MediaLibrary from "expo-media-library";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-export default function App() {
+const Stack = createStackNavigator();
+
+const HomeScreen = ({ navigation }) => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text>Home Screen</Text>
+      <Button title="Take Photo" onPress={() => navigation.navigate("CameraView")} />
+    </SafeAreaView>
+  );
+};
+
+
+
+const CameraViewScreen = () => {
   let cameraRef = useRef();
   const [hasCameraPermission, setHasCameraPermission] = useState();
   const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState();
@@ -85,6 +100,17 @@ export default function App() {
       <StatusBar style="auto" />
       <Text>Text-Extractor</Text>
     </Camera>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="CameraView" component={CameraViewScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
