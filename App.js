@@ -1,11 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
+import { React } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import CameraScreen from './CameraScreen'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your!</Text>
-      <StatusBar style="auto" />
+      <CameraScreen/>
+      <Text>Text Extractor</Text>
     </View>
   );
 }
