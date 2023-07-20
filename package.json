@@ -20,7 +20,9 @@
     "rn-text-detector": "^0.0.8",
     "tesseract.js": "^4.1.1",
     "expo-camera": "~13.2.1",
-    "expo-permissions": "~14.1.1"
+    "expo-permissions": "~14.1.1",
+    "expo-sharing": "~11.2.2",
+    "expo-media-library": "~15.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
